@@ -64,8 +64,8 @@ def mesuring_wpm(words, elapsed_time):
     for i in range(min_length):
       if word1[i] != word2[i]:
         extratime += 1
-  elapsed_time += extratime
-  wpm = round((words / elapsed_time) * 60)
+  totaltime = elapsed_time + extratime
+  wpm = round((words / totaltime) * 60)
   return wpm
       
 def drawPause():
@@ -174,7 +174,6 @@ while run:
       #   pause_start = None
     if quitBtn:
       run = False
-
   if start_time is not None and not paused:
     elapsed_time = time.time() - start_time 
   # elif start_time is not None and paused:
